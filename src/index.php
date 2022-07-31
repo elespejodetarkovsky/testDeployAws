@@ -1,1 +1,1 @@
-<?php phpinfo(); ?>
+<?php print "hola mundo"; ?>
