@@ -12,10 +12,15 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                type: attribute
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+
+when@test:
+    doctrine:
+        dbal:
+            # "TEST_TOKEN" is typically set by ParaTest
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
 
 when@prod:
     doctrine:
@@ -35,9 +40,3 @@ when@prod:
                     adapter: cache.app
                 doctrine.system_cache_pool:
                     adapter: cache.system
-
-when@test:
-    doctrine:
-        dbal:
-            # "TEST_TOKEN" is typically set by ParaTest
-            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
