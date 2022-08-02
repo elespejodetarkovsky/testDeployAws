@@ -5,7 +5,15 @@
     {
       "dnsSearchDomains": null,
       "environmentFiles": null,
-      "logConfiguration": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/task-app",
+          "awslogs-region": "eu-west-3",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "entryPoint": null,
       "portMappings": [
         {
@@ -14,7 +22,7 @@
           "containerPort": 80
         }
       ],
-      "command": [],
+      "command": null,
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -29,7 +37,7 @@
       "memoryReservation": 256,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "513775362253.dkr.ecr.eu-west-3.amazonaws.com/symfony-app:387c6416090c9f3256ab2b9419044e0a428cd233",
+      "image": "513775362253.dkr.ecr.eu-west-3.amazonaws.com/symfony-app:add995bb4868091f409b3c222f05f63b3457a296",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -56,14 +64,26 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:513775362253:task-definition/task-app:45",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:513775362253:task-definition/task-app:53",
   "family": "task-app",
   "requiresAttributes": [
     {
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
     },
     {
       "targetId": null,
@@ -79,7 +99,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": null,
-  "revision": 45,
+  "revision": 53,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
