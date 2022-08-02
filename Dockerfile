@@ -17,6 +17,9 @@ COPY src /usr/share/nginx/html
 
 RUN mkdir /var/run/php
 
+WORKDIR /usr/share/nginx/html
+
+
 #RUN apk update && apk add zlib1g-dev g++ git libicu-dev zip libzip-dev zip unixodbc-dev gnupg2 libodbc1 libxml2-dev apt-transport-https \
 #     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 #     && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
@@ -60,4 +63,4 @@ EXPOSE 443
 
 STOPSIGNAL SIGTERM
 
-CMD ["/bin/bash", "-c", "php-fpm8 && chmod 777 /var/run/php/php8-fpm.sock && chmod 755 /usr/share/nginx/html/* && nginx -g 'daemon off;'"]
+CMD ["/bin/bash", "-c", "php-fpm8 && chmod 777 /var/run/php/php8-fpm.sock && chmod 755 /usr/share/nginx/html/* && nginx -g 'daemon off;' && composer install"]

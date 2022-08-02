@@ -14,9 +14,7 @@
           "containerPort": 80
         }
       ],
-      "command": [
-        "composer update"
-      ],
+      "command": [],
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -24,14 +22,14 @@
       "ulimits": null,
       "dnsServers": null,
       "mountPoints": [],
-      "workingDirectory": "/usr/share/nginx/html",
+      "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": 512,
       "memoryReservation": 256,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "513775362253.dkr.ecr.eu-west-3.amazonaws.com/symfony-app:8416ca23e25c3ae3ec7acd48421661ba9cde5b91",
+      "image": "513775362253.dkr.ecr.eu-west-3.amazonaws.com/symfony-app:387c6416090c9f3256ab2b9419044e0a428cd233",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -58,7 +56,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:513775362253:task-definition/task-app:43",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:513775362253:task-definition/task-app:45",
   "family": "task-app",
   "requiresAttributes": [
     {
@@ -66,12 +64,6 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
     },
     {
       "targetId": null,
@@ -87,7 +79,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": null,
-  "revision": 43,
+  "revision": 45,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
