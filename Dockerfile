@@ -103,6 +103,15 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
+
+WORKDIR /usr/share/nginx/html/
+
 # Supervisor config
 COPY ./supervisord.conf /etc/supervisord.conf
 
@@ -110,10 +119,13 @@ COPY ./supervisord.conf /etc/supervisord.conf
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 # Override default nginx welcome page
-COPY src /usr/share/nginx/html
+COPY ./src /usr/share/nginx/html
 
 # Copy Scripts
 COPY ./start.sh /start.sh
+
+RUN composer install
+RUN composer update
 
 EXPOSE 80
 
