@@ -103,6 +103,8 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install curl
+RUN apt-get update && upgrade
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
