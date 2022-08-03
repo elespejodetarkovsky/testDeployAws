@@ -128,6 +128,9 @@ COPY ./src /usr/share/nginx/html
 # Copy Scripts
 COPY ./start.sh /start.sh
 
+RUN composer install
+RUN composer update
+
 EXPOSE 80
 
 CMD ["/start.sh"]
