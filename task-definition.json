@@ -22,7 +22,9 @@
           "containerPort": 80
         }
       ],
-      "command": null,
+      "command": [
+        "composer install"
+      ],
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -30,14 +32,14 @@
       "ulimits": null,
       "dnsServers": null,
       "mountPoints": [],
-      "workingDirectory": null,
+      "workingDirectory": "/usr/share/nginx/html/",
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": 512,
       "memoryReservation": 256,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "513775362253.dkr.ecr.eu-west-3.amazonaws.com/symfony-app:add995bb4868091f409b3c222f05f63b3457a296",
+      "image": "513775362253.dkr.ecr.eu-west-3.amazonaws.com/symfony-app:0284e127d91b2fa93ea0c1e08d46c3b82f5d9535",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -64,7 +66,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:513775362253:task-definition/task-app:53",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:513775362253:task-definition/task-app:56",
   "family": "task-app",
   "requiresAttributes": [
     {
@@ -89,6 +91,12 @@
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
     }
   ],
@@ -99,7 +107,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": null,
-  "revision": 53,
+  "revision": 56,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
